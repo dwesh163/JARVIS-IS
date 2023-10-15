@@ -1,5 +1,0 @@
-vosk
-python-dotenv
-os
-PyAudio
-transformers
