@@ -1,4 +1,4 @@
-#from scripts.AI_script import AI
+from scripts.AI_script import AI
 
 from vosk import Model, KaldiRecognizer
 from dotenv import load_dotenv
@@ -6,7 +6,9 @@ import os
 import pyaudio
 
 load_dotenv()
-    
+
+AI(os.getenv('AI_PATH'))
+
 #model
 model = Model(os.getenv('VOSK_PATH'))
 recognizer = KaldiRecognizer(model, 16000)
