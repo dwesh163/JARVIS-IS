@@ -1,5 +1,3 @@
-from scripts.AI_script import AI
-
 from vosk import Model, KaldiRecognizer
 from dotenv import load_dotenv
 import os
@@ -26,4 +24,4 @@ while True:
         text = text[14:-3]
         if text != "":
             print(text)    
-        
+         
