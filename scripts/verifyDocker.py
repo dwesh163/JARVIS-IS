@@ -1,6 +1,7 @@
 from dotenv import load_dotenv
 import os
 import subprocess
+import json
 
 
 load_dotenv()
@@ -12,17 +13,33 @@ dockerReturnList = dockerReturn.split("\n")
 dockerReturnTitle = dockerReturnList[0].split("   ")
 
 dockerReturnData = {}
+dockerReturnNewTitle = []
+
+for i in range(len(dockerReturnTitle)):
+    if dockerReturnTitle[i] != "":
+        dockerReturnNewTitle.append(dockerReturnTitle[i].strip())
+
 
 for i in range(1, len(dockerReturnList)):
+
+    dockerReturnNewList = []
+
+
+    for j in range(len(dockerReturnList[i].split("   "))):
+        print(dockerReturnList[i])
+        if dockerReturnList[i].split("   ")[j] != "":
+            dockerReturnNewList.append(dockerReturnList[i].split("   ")[j].strip())
+    
     dockerReturnData[dockerReturnList[i].split("   ")[0]] = {
-        dockerReturnTitle[1] : dockerReturnList[i].split("   ")[1],
-        dockerReturnTitle[4] : dockerReturnList[i].split("   ")[2],
-        dockerReturnTitle[10] : dockerReturnList[i].split("   ")[3],
-        dockerReturnTitle[12] : dockerReturnList[i].split("   ")[4],
-        dockerReturnTitle[18] : dockerReturnList[i].split("   ")[5],
-        dockerReturnTitle[31] : dockerReturnList[i].split("   ")[7],
+        dockerReturnNewTitle[1] : dockerReturnNewList[0],
+        dockerReturnNewTitle[2] : dockerReturnNewList[1],
+        dockerReturnNewTitle[3] : dockerReturnNewList[2],
+        dockerReturnNewTitle[4] : dockerReturnNewList[3],
+        dockerReturnNewTitle[5] : dockerReturnNewList[4],
+        dockerReturnNewTitle[6] : dockerReturnNewList[5],
 
     }
+
 
 print(dockerReturnData)
 
