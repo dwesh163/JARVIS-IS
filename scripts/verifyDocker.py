@@ -34,7 +34,7 @@ for i in range(1, len(dockerReturnList)):
         dockerReturnNewTitle[4] : dockerReturnNewList[4]
     }
 
-    if len(dockerReturnData) == 5:
+    if len(dockerReturnData[dockerReturnNewList[0]]) == 5:
         dockerReturnData[dockerReturnNewList[0]][dockerReturnNewTitle[6]] = dockerReturnNewList[5]
         dockerReturnData[dockerReturnNewList[0]][dockerReturnNewTitle[5]] = dockerReturnNewList[6]
     else:
