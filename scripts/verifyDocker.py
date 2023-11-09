@@ -2,7 +2,6 @@ from telegram.ext import Updater, CommandHandler, CallbackQueryHandler
 from dotenv import load_dotenv
 import os
 import subprocess
-import json
 
 load_dotenv()
 
@@ -45,8 +44,8 @@ for i in range(1, len(dockerReturnList)):
 
 
 
-response = f"Status : OK 4/{len(dockerReturnData)}"
-error = "  STATUS              NAMES\n"
+response = f"Statu : OK     Docker : {len(dockerReturnData) - len(dockerReturnErrorData)}/{len(dockerReturnData)}"
+error = "  STATU              NAMES\n"
 
 for container in dockerReturnErrorData:
     print(dockerReturnData[container]['STATUS'])
@@ -64,6 +63,7 @@ def main(response, error):
     bot.send_message(chat_id=os.getenv("ADMIN_TELEGRAM_ID"), text=error)
 
     updater.start_polling()
+    updater.stop()
 
 
 if __name__ == '__main__':
