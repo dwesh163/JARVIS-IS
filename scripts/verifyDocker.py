@@ -44,8 +44,8 @@ for i in range(1, len(dockerReturnList)):
 
 
 
-response = f"Statu : OK     Docker : {len(dockerReturnData) - len(dockerReturnErrorData)}/{len(dockerReturnData)}"
-error = "  STATU              NAMES\n"
+response = f"Statu : {len(dockerReturnData) - len(dockerReturnErrorData)}/{len(dockerReturnData)}   État : OK"
+error = "STATU              NAMES\n"
 
 for container in dockerReturnErrorData:
     print(dockerReturnData[container]['STATUS'])
