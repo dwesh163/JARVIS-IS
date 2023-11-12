@@ -39,7 +39,7 @@ for i in range(1, len(dockerReturnList)):
     else:
         dockerReturnData[dockerReturnNewList[0]][dockerReturnNewTitle[6]] = dockerReturnNewList[5]
 
-    if "Exited" in dockerReturnData[dockerReturnNewList[0]]["STATUS"]:
+    if "Exited" in dockerReturnData[dockerReturnNewList[0]]["STATUS"] or "Restarting" in dockerReturnData[dockerReturnNewList[0]]["STATUS"]:
         dockerReturnErrorData.append(dockerReturnNewList[0])
 
 
